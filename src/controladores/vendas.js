@@ -1,0 +1,56 @@
+const pool = require("../conexao");
+const { criarToken, cobrar } = require("../stripe");
+
+const venda = async (req, res) => {
+  const { cliente_id, produto_id, quantidade, card } = req.body;
+
+  try {
+    const cliente = await pool.query(" select * from clientes where id = $1", [
+      cliente_id,
+    ]);
+
+    if (cliente.rowCount < 1) {
+      return res.status(404).json({ message: "Cliente não encontrado" });
+    }
+
+    const produto = await pool.query(" select * from produtos where id = $1", [
+      produto_id,
+    ]);
+
+    if (produto.rowCount < 1) {
+      return res.status(404).json({ message: "Produto não encontrado" });
+    }
+
+    if (quantidade < 1) {
+      return res.status(400).json({ message: "Quantidade é no minimo 1" });
+    }
+
+    const valorVenda = produto.rows[0].valor * quantidade;
+    // const tokenCartao = await criarToken({card});
+
+    const cobranca = await cobrar(valorVenda, 'tok_visa'); //o tok_visa vai ser o token do cartão que foi criado no stripe
+
+    const query = `
+        insert into vendas (cliente_id, produto_id, quantidade, transacao_id)
+        values ($1, $2, $3, $4)
+        returning *
+    `;
+
+    const vendaRealizada = await pool.query(query, [
+      cliente_id,
+      produto_id,
+      quantidade,
+      cobranca.id,
+    ]);
+
+    return res.status(201).json(cobranca);
+  } catch (error) {
+    if (error.response) {
+      return res.status(400).json(error.response.data);
+    }
+
+    return res.status(500).json({ message: "Erro interno no servidoor" });
+  }
+};
+
+module.exports = { venda };

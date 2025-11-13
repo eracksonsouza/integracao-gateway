@@ -14,7 +14,6 @@ rotas.post("/produto", produtos.cadastrar);
 
 rotas.post("/venda", vendas.venda);
 
-// Rota para criar sessão de checkout do Stripe
 rotas.post(
   "/stripe/create-checkout-session",
   stripeCheckout.criarCheckoutSession

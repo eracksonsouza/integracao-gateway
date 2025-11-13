@@ -6,7 +6,6 @@ export default function Cancelado() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-linear-to-br from-red-50 to-orange-100 p-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
-        {/* Ícone de Cancelamento */}
         <div className="mb-6">
           <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto">
             <svg
@@ -25,7 +24,6 @@ export default function Cancelado() {
           </div>
         </div>
 
-        {/* Mensagem de Cancelamento */}
         <h1 className="text-3xl font-bold text-gray-800 mb-4">
           Pagamento Cancelado
         </h1>
@@ -34,7 +32,6 @@ export default function Cancelado() {
           Você cancelou o processo de pagamento. Nenhuma cobrança foi realizada.
         </p>
 
-        {/* Informações Adicionais */}
         <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
           <p className="text-sm text-gray-700">
             Se você teve algum problema durante o checkout, tente novamente ou
@@ -42,7 +39,6 @@ export default function Cancelado() {
           </p>
         </div>
 
-        {/* Botões de Ação */}
         <div className="space-y-3">
           <Link
             href="/"
@@ -59,7 +55,6 @@ export default function Cancelado() {
           </button>
         </div>
 
-        {/* Mensagem de Ajuda */}
         <p className="text-xs text-gray-500 mt-6">
           💡 Seu carrinho foi preservado e nenhuma cobrança foi efetuada
         </p>

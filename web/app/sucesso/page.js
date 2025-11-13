@@ -11,7 +11,6 @@ function SucessoContent() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-linear-to-br from-green-50 to-emerald-100 p-4">
       <div className="bg-white rounded-2xl shadow-xl p-8 max-w-md w-full text-center">
-        {/* Ícone de Sucesso */}
         <div className="mb-6">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
             <svg
@@ -30,7 +29,6 @@ function SucessoContent() {
           </div>
         </div>
 
-        {/* Mensagem de Sucesso */}
         <h1 className="text-3xl font-bold text-gray-800 mb-4">
           Pagamento Concluído!
         </h1>
@@ -39,7 +37,6 @@ function SucessoContent() {
           Seu pagamento foi processado com sucesso pela Stripe.
         </p>
 
-        {/* Informações da Sessão */}
         {sessionId && (
           <div className="bg-gray-50 rounded-lg p-4 mb-6">
             <p className="text-xs text-gray-500 mb-1">ID da Sessão:</p>
@@ -49,7 +46,6 @@ function SucessoContent() {
           </div>
         )}
 
-        {/* Detalhes do Pedido */}
         <div className="border-t border-b py-4 mb-6">
           <div className="flex justify-between items-center mb-2">
             <span className="text-gray-600">Produto:</span>
@@ -61,7 +57,6 @@ function SucessoContent() {
           </div>
         </div>
 
-        {/* Botão de Retorno */}
         <Link
           href="/"
           className="inline-block w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-200"
@@ -69,7 +64,6 @@ function SucessoContent() {
           Voltar à Página Inicial
         </Link>
 
-        {/* Mensagem Adicional */}
         <p className="text-xs text-gray-500 mt-6">
           Um recibo foi enviado para o seu email
         </p>

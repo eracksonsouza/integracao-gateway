@@ -5,7 +5,6 @@ const rotas = require("./rotas");
 
 const app = express();
 
-// Libera CORS para o frontend em localhost:3000
 app.use(
   cors({
     origin: "http://localhost:3000",

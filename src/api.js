@@ -9,6 +9,4 @@ const instanciaAxios = axios.create({
   },
 });
 
-//qs.stringify(dasdos); //vai transformar os dados em query string
-
 module.exports = instanciaAxios;

@@ -26,9 +26,8 @@ const venda = async (req, res) => {
     }
 
     const valorVenda = produto.rows[0].valor * quantidade;
-    // const tokenCartao = await criarToken({card});
 
-    const cobranca = await cobrar(valorVenda, 'tok_visa'); //o tok_visa vai ser o token do cartão que foi criado no stripe
+    const cobranca = await cobrar(valorVenda, "tok_visa");
 
     const query = `
         insert into vendas (cliente_id, produto_id, quantidade, transacao_id)

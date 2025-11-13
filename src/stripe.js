@@ -6,7 +6,7 @@ const criarToken = async (card) => {
   const { data: tokenCartao } = await instanciaAxios.post(
     "/tokens",
     dadosCartao
-  ); //o data: tokenCartao vai receber o token do cartão que foi criado no stripe
+  );
   return tokenCartao;
 };
 
